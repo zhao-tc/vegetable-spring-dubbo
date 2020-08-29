@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztc.vegetable.manage.db.mapper.ShopListMapper">
+  <resultMap id="BaseResultMap" type="com.ztc.vegetable.manage.db.model.ShopList">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="src" jdbcType="VARCHAR" property="src" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="DISCOUNT" jdbcType="DOUBLE" property="discount" />
+    <result column="HOT" jdbcType="VARCHAR" property="hot" />
+    <result column="des" jdbcType="VARCHAR" property="des" />
+    <result column="IS_DELETE" jdbcType="VARCHAR" property="isDelete" />
+    <result column="CREATED_USER" jdbcType="VARCHAR" property="createdUser" />
+    <result column="CREATED_DATE" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="MODIFIED_USER" jdbcType="VARCHAR" property="modifiedUser" />
+    <result column="MODIFIED_DATE" jdbcType="TIMESTAMP" property="modifiedDate" />
+  </resultMap>
+</mapper>

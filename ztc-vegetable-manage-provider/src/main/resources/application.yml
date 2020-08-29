@@ -1,0 +1,83 @@
+# Spring boot application
+spring:
+  application:
+    name: ztc-vegetable-manage-provider
+  datasource:
+    druid:
+      url: jdbc:mysql://mysql.ztc.mobi:3306/vegetable-shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: ztc
+      password: 123456
+      initial-size: 2
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # MySQL 8.x: com.mysql.cj.jdbc.Driver
+#      driver-class-name: com.mysql.jdbc.Driver
+
+# UserService service version
+user:
+  service:
+    version: 1.0.0
+server:
+  port: 8089
+# Dubbo Config properties
+dubbo:
+  ## Base packages to scan Dubbo Component：@com.alibaba.dubbo.config.annotation.Service
+  scan:
+    basePackages: com.ztc.vegetable.manage.provider
+  ## ApplicationConfig Bean
+  application:
+    id: ztc-vegetable-manage-provider
+    name: ztc-vegetable-manage-provider
+    qos-port: 22222
+    qos-enable: true
+  ## ProtocolConfig Bean
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20881
+    status: server
+  ## RegistryConfig Bean
+  registry:
+    id: zookeeper
+    address: zookeeper://127.0.0.1:2181
+    #registry:
+    ##    id: nacos
+    ##    address: nacos://192.168.91.144:8848?backup=192.168.91.147:8849,192.168.91.147:8850
+
+# Enables Dubbo All Endpoints
+management:
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+  # Dubbo Health
+  health:
+    dubbo:
+      status:
+        ## StatusChecker Name defaults (default : "memory", "load" )
+        defaults: memory
+        ## StatusChecker Name extras (default : empty )
+        extras: load,threadpool
+# classpath:com/ztc/vegetable/manage/db/mapper/*/*.xml,
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.ztc.vegetable.manage.db.model
+  mapper-locations:
+    - classpath*:com/ztc/vegetable/manage/db/mapper/*/*.xml
+    - classpath*:com/ztc/vegetable/manage/provider/*/dao/xml/*.xml
+
+
+
+

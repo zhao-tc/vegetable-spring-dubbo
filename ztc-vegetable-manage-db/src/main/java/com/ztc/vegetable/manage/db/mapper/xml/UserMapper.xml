@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztc.vegetable.manage.db.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.ztc.vegetable.manage.db.model.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="adress" jdbcType="VARCHAR" property="adress" />
+    <result column="root" jdbcType="INTEGER" property="root" />
+    <result column="IS_DELETE" jdbcType="VARCHAR" property="isDelete" />
+    <result column="CREATED_USER" jdbcType="VARCHAR" property="createdUser" />
+    <result column="CREATED_DATE" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="MODIFIED_USER" jdbcType="VARCHAR" property="modifiedUser" />
+    <result column="MODIFIED_DATE" jdbcType="TIMESTAMP" property="modifiedDate" />
+  </resultMap>
+</mapper>

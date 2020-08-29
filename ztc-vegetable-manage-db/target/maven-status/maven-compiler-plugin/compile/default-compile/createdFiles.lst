@@ -1,0 +1,12 @@
+com\ztc\vegetable\manage\db\model\Adress.class
+com\ztc\vegetable\manage\db\mapper\AdressMapper.class
+com\ztc\vegetable\manage\db\model\User.class
+com\ztc\vegetable\manage\db\mapper\CartMapper.class
+com\ztc\vegetable\manage\db\mapper\OrderMapper.class
+com\ztc\vegetable\manage\db\mapper\WishMapper.class
+com\ztc\vegetable\manage\db\mapper\ShopListMapper.class
+com\ztc\vegetable\manage\db\model\ShopList.class
+com\ztc\vegetable\manage\utils\MyMapper.class
+com\ztc\vegetable\manage\db\model\Cart.class
+com\ztc\vegetable\manage\db\model\Wish.class
+com\ztc\vegetable\manage\db\mapper\UserMapper.class

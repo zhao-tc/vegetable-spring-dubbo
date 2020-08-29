@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztc.vegetable.manage.provider.order.dao.QryOrderInfoDAO">
+
+    <select id="qryOrderInfo" parameterType="com.ztc.vegetable.manage.api.order.req.QryAorderReqModel"
+            resultType="com.ztc.vegetable.manage.db.model.Sorder" >
+        select  *  from sorder
+        <where>
+            <if test="userName != null and userName != ''">
+                `USERNAME` like concat('%',#{userName},'%') and
+            </if>
+            <if test="orderId != null and orderId != ''">
+                `ORDERID` like concat('%',#{orderId},'%') and
+            </if>
+            <if test="start != null">
+                CREATED_DATE &gt;= #{start} and
+            </if>
+            <if test="end != null">
+                CREATED_DATE  &lt;= #{end} and
+            </if>
+            IS_DELETE = '0'
+        </where>
+
+    </select>
+</mapper>

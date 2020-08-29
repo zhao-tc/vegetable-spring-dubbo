@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 引入数据库连接配置 -->
+    <properties resource="jdbc.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 配置 tk.mybatis 插件 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.ztc.vegetable.manage.utils.MyMapper"/>
+        </plugin>
+        <!-- 配置生成pojo的序列化的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下  -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!-- 配置生成pojo的toString()方法的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 配置数据库连接 -->
+        <jdbcConnection
+                driverClass="${jdbc.driverClass}"
+                connectionURL="${jdbc.connectionURL}"
+                userId="${jdbc.username}"
+                password="${jdbc.password}">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <!-- 配置实体类存放路径 -->
+        <javaModelGenerator targetPackage="com.ztc.vegetable.manage.db.model" targetProject="src/main/java"/>
+
+        <!-- 配置 XML 存放路径 -->
+        <sqlMapGenerator targetPackage="com.ztc.vegetable.manage.db.mapper.xml" targetProject="src/main/java"/>
+
+        <!-- 配置 DAO 存放路径 -->
+        <javaClientGenerator
+                targetPackage="com.ztc.vegetable.manage.db.mapper"
+                targetProject="src/main/java"
+                type="XMLMAPPER"/>
+
+        <!-- 配置需要指定生成的数据库和表，% 代表所有表 -->
+        <table tableName="%">
+            <!-- mysql 配置 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
